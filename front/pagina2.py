@@ -3,15 +3,15 @@ from cores import Cores
 
 def main(page: ft.Page):
 
-    page.title = "Iconic Brazil"
+    page.title = "Carregadores"
     page.bgcolor = "#E4E7E8"
     page.padding = 0
     page.scroll = ft.ScrollMode.AUTO
     
    
-    # CONFIGURAÇÃO DE TELA CHEIA / JANELA MAXIMIZADA
+    # JANELA MAXIMIZADA
     page.window.maximized = True  
-    page.window.min_width = 800
+    page.window.min_width = 600
     page.window.min_height = 600
    
     
@@ -98,18 +98,38 @@ def main(page: ft.Page):
                     width=float("inf"),
                     height=390,
                     content=ft.Image(
-                        src=r"C:\Users\João Pedro\Desktop\workspace\front\imagem posto.png",
+                        src=r"imagem posto.png",
                         fit=ft.BoxFit.COVER,
                     )
                 ),
                 # Escurece levemente a imagem
+
                 ft.Container(
-                    bgcolor="#00000000",
-                    border_radius=30
+                    bgcolor="#000000dd",
+                    border_radius=30,
+                    width=float("inf")
                 ),
                 # Conteúdo sobre a imagem
                 ft.Container(
                     padding=35,
+                #       gradient=ft.LinearGradient(
+                #                     begin=ft.Alignment.TOP_LEFT,
+                #                     end=ft.Alignment(0.8, 1),
+                #                     tile_mode=ft.GradientTileMode.MIRROR,
+                #                     # rotation=math.pi / 3,
+                #                     colors=[
+                #                         Cores.PRIMARIO_CLARO_TRANSPARENT,
+                #                         Cores.PRIMARIO_ESCURO_TRANSPARENT
+                #                     ],
+                #       ),
+                    gradient=ft.LinearGradient(
+                        begin=ft.Alignment.TOP_CENTER,
+                        end=ft.Alignment.BOTTOM_CENTER,
+                        colors=[
+                            "0x00000000",
+                            "0xef000000"
+                        ]
+                    ),
                     content=ft.Column(
                         controls=[
                             ft.Row(
@@ -150,10 +170,8 @@ def main(page: ft.Page):
         )
     )
 
-    # =========================================================
-    # INFORMAÇÕES DA VIAGEM
-    # =========================================================
-
+    
+    
     informacoes = ft.Container(
         bgcolor="#FFFFFF",
         border_radius=25,
@@ -237,7 +255,7 @@ def main(page: ft.Page):
     # sugestao 1 
    
 
-    day1 = ft.Container(
+    sg1 = ft.Container(
         bgcolor="#FFFFFF",
         border_radius=20,
         padding=15,
@@ -251,7 +269,7 @@ def main(page: ft.Page):
                             border_radius=10,
                             clip_behavior=ft.ClipBehavior.ANTI_ALIAS,
                             content=ft.Image(
-                                src=r"front\src\imagem posto.png",
+                                src=r"posto2.jpeg",
                                 fit=ft.BoxFit.COVER,
                             ),
                         ),
@@ -360,9 +378,9 @@ def main(page: ft.Page):
         )
     )
 
-    # =========================================================
+    
     # CONTEÚDO PRINCIPAL
-    # =========================================================
+   
 
     conteudo = ft.Container(
         expand=True,
@@ -378,7 +396,7 @@ def main(page: ft.Page):
                                 descricao,
                                 ft.Container(height=20),
                                 titulo_roteiro,
-                                day1,
+                                sg1,
                             ],
                             spacing=15,
                             expand=True
@@ -406,4 +424,4 @@ def main(page: ft.Page):
         )
     )
 
-ft.app(target=main)
+ft.app(target=main, assets_dir="assets")

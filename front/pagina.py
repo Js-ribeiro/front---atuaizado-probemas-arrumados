@@ -74,7 +74,8 @@ def main(page: ft.Page):
  
         return ft.Container(
             bgcolor=Cores.CARDS,
-            border_radius=16,
+            border_radius=10,
+            border=ft.Border.all(1, Cores.PRIMARIO_CLARO),
             padding=12,
             content=ft.Row(
                 vertical_alignment=ft.CrossAxisAlignment.CENTER,
